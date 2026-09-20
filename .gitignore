@@ -1,0 +1,30 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+
+# Testing cache
+.pytest_cache/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# Packet capture files
+*.pcap
+*.pcapng
+
+# macOS
+.DS_Store
+
+# VS Code local settings
+.vscode/
