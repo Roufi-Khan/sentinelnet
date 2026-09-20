@@ -8,20 +8,23 @@ them to the packet analyzer.
 from scapy.all import Packet, sniff
 
 from sentinel.analyzer import analyze_packet
+from sentinel.database import log_network_event
 
 
 def handle_packet(packet: Packet) -> None:
     """
-    Analyzes and displays metadata for a captured network packet.
+    Analyze, store, and display metadata for a captured packet.
 
     Packets that are not currently supported by the analyzer
-    should be ignored.
+    are ignored.
     """
 
     packet_info = analyze_packet(packet)
 
     if packet_info is None:
         return
+
+    log_network_event(packet_info)
 
     print(
         f"[PACKET] "
@@ -39,8 +42,8 @@ def capture_packets(interface: str | None = None, count: int = 10) -> None:
 
     Args:
         interface:
-            Name of the network's interface to monitor.
-            If 'None, Scapy chooses an appropriate interface.
+            Name of the network interface to monitor.
+            If None, Scapy chooses an appropriate interface.
 
         count:
             Number of packets to capture before stopping.

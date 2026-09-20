@@ -1,43 +1,46 @@
 # SentinelNet
 
-SentinelNet is a Python-based network intrusion detection system for monitoring network traffic and will help in identifying suspicious activity.
+SentinelNet is a network monitoring and intrusion detection project I'm building in Python to get more hands-on experience with networking and cybersecurity.
 
-This project is being developed as a hands-on personal exploration of network programming, cybersecurity, intrusion detection, and security monitoring.
+The project currently captures network traffic using Scapy, extracts basic TCP/UDP packet information, and uses SQLite for storing network event data.
 
-## Project Status
+## Current Features
 
-SentinelNet is currently under development.
-
-## Planned Features
-
-- Live network packet capture
-- TCP/IP traffic analysis
-- Protocol statistics
-- Rule-based intrusion detection
-- Port scan detection
-- Abnormal connection-rate detection
-- Security alert generation
+- Live packet capture with Scapy
+- IPv4 packet analysis
+- TCP and UDP metadata extraction
+- TCP flag inspection
 - SQLite event storage
-- REST API
-- Web-based monitoring dashboard
-- Automated tests
+- Basic automated tests with pytest
+
+## In Progress
+
+I'm currently working on connecting packet capture more fully with event storage and building the detection side of the project.
+
+Planned additions include:
+
+- Port scan detection
+- Suspicious connection-rate detection
+- Alert generation
+- Traffic statistics
+- Simple monitoring dashboard
 
 ## Technologies
 
 - Python
 - Scapy
 - SQLite
-- Flask
+- pytest
 
-## Project Structure
+## Structure
 
 ```text
 sentinelnet/
 ├── sentinel/
-│   ├── __init__.py
+│   ├── analyzer.py
+│   ├── capture.py
+│   ├── database.py
 │   └── main.py
 ├── tests/
-│   └── __init__.py
 ├── requirements.txt
-├── .gitignore
 └── README.md
